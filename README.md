@@ -499,13 +499,13 @@ IPv4与IPv6的差别主要是表示IP地址所用的字节数，目前通用的�
 
 IPv4标准的4字节IP地址分为网络地址和主机（指计算机）地址，且分为A、B、C、D、E等类型。图3-1展示了IPv4地址族，一般不会使用已被预约了的E类型，故省略。
 
-<img src="C:\Users\Tsing\Desktop\.assets\3-1.png" style="zoom:40%;margin:0px" />
+<img src="image\3-1.png" style="zoom:40%;margin:0px" />
 
 网络地址（网络ID）是为区分网络而设置的一部分IP地址。假设向WWW.SEMI.COM公司传输数据，该公司内部创建了局域网，把所有计算机连接起来。因此，首先应向SEMI.COM网络传输数据，也就是说，并非一开始就浏览所有4字节IP地址，进而找到目标主机；而是仅浏览4字节IP地址的网络地址，先把数据传到SEMI.COM网络。SEMI.COM网络（构成网络的路由器）接收到数据后，浏览传输数据的主机地址（主机ID）并将数据传给目标计算机。
 
 图3-2展示了数据传输过程：
 
-<img src="C:\Users\Tsing\Desktop\.assets\3-2.png" style="zoom:35%;margin:0px" />
+<img src="image\3-2.png" style="zoom:35%;margin:0px" />
 
 某主机向203.211.172.103和203.211.217.202传输数据，其中203.211.172和203.211.217为该网络的网络地址。所以，“向相应网络传输数据”实际上是向构成网络的路由器（Router）或交换机（Switch）传输数据，由接受数据的路由器根据数据中的主机地址向目标主机传递数据。
 
@@ -533,7 +533,7 @@ IP用于区分计算机，只要有IP地址就能向目标主机传输数据，�
 
 所以计算机一般有NIC（网络接口卡）数据传输设备。通过NIC接收的数据内有端口号，操作系统参考端口号把信息传给相应的应用程序。
 
-<img src="C:\Users\Tsing\Desktop\.assets\3_3_3.jpg" alt="d" style="zoom:60%;margin:0px" />
+<img src="image\3_3_3.jpg" alt="d" style="zoom:60%;margin:0px" />
 
 端口号相关信息：
 
@@ -706,7 +706,7 @@ CPU向内存保存数据的方式有2种，这意味着CPU解析数据的方式�
 
 - 大端序CPU保存方式
 
-  <img src="C:\Users\Tsing\Desktop\.assets\3.3.1_1.png" style="zoom:25%;margin:0px" />
+  <img src="image\3.3.1_1.png" style="zoom:25%;margin:0px" />
 
 > 说明：在0x20号开始的地址中保存4字节int类型数0x12345678
 >
@@ -714,13 +714,13 @@ CPU向内存保存数据的方式有2种，这意味着CPU解析数据的方式�
 
 - 小端序字节保存方式
 
-  <img src="C:\Users\Tsing\Desktop\.assets\3.3.1_2.png" style="zoom:31%;margin:0px" />
+  <img src="image\3.3.1_2.png" style="zoom:31%;margin:0px" />
 
 > 先保存的是低位字节0x78。
 
 字节序不同的计算机之间数据传递过程中可能出现的问题，如图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\3.3.1_3.png" alt="1" style="zoom:40%;margin:0px" />
+<img src="image\3.3.1_3.png" alt="1" style="zoom:40%;margin:0px" />
 
 为解决这个问题，在通过网络传输数据时约定统一方式，这种约定称为：网络字节序（Network Byte Order），就是统一为大端序。即先把数据数组转化成大端序格式再进行网络传输。因此，所有计算机接收数据时应识别该数据是网络字节序格式，小端序系统传输数据时因转化为大端序排列方式。
 
@@ -1052,7 +1052,7 @@ TCP是Transmission Control Protocol(传输控制协议)的简写，意为“对�
 
 TCP所属的TCP/IP协议栈：
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.4.1.png" alt="f" style="zoom:55%;margin:0px" />
+<img src="image\4.4.1.png" alt="f" style="zoom:55%;margin:0px" />
 
 TCP/IP协议栈分为4层，可以理解为数据收发分成4个层次化过程。下面自下而上依次介绍。
 
@@ -1090,7 +1090,7 @@ IP层只关注1个数据包（数据传输的基本单位）的传输过程。�
 
 图4-5简单描述了TCP的功能。
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.1.4.png" alt="1" style="zoom:55%;margin:0px" />
+<img src="image\4.1.4.png" alt="1" style="zoom:55%;margin:0px" />
 
 总之，TCP和UDP存在于IP层之上，决定主机之间的数据传输方式，TCP协议确认后向不可靠的IP协议赋予可靠性。
 
@@ -1108,7 +1108,7 @@ IP层只关注1个数据包（数据传输的基本单位）的传输过程。�
 
 绝大部分TCP服务器端都按照该顺序调用:
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.2.1.png" style="zoom:80%;margin:0px" />
+<img src="image\4.2.1.png" style="zoom:80%;margin:0px" />
 
 调用socket函数创建套接字，声明并初始化地址信息结构体变量，调用bind函数向套接字分配地址。这2个阶段之前已讨论过，下面讲解之后的几个过程。
 
@@ -1129,7 +1129,7 @@ int listen(int sock, int backlog);
 >
 > 向解释一下”等待连接请求状态“的含义和“连接请求等待队列。“服务器端处于等待连接请求状态”是指，客户端请求连接时，受理连接前一直使请求处于等待状态。图4-7给出了这个过程。
 >
-> <img src="C:\Users\Tsing\Desktop\.assets\4.2.2.png" alt="1" style="zoom:50%;margin:0px" />
+> <img src="image\4.2.2.png" alt="1" style="zoom:50%;margin:0px" />
 >
 > 由上图可知作为listen函数的第一个参数传递的文件描述符套接字的用途。
 >
@@ -1158,7 +1158,7 @@ int accept(int sock, struct sockaddr * adr, socklen_t * addrlen);
 
 accept函数受理连接请求等待队列中待处理的客户端连接请求。函数调用成功时，accept函数内部将产生用于数据I/O的套接字，并返回其文件描述符。需要强调的是，套接字是自动创建的，并自动与发起连接请求的客户端建立连接。图4-8展示了accept函数调用过程。
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.2.3.png" alt="1" style="zoom:50%;margin:0px" />
+<img src="image\4.2.3.png" alt="1" style="zoom:50%;margin:0px" />
 
 
 
@@ -1235,7 +1235,7 @@ accept函数受理连接请求等待队列中待处理的客户端连接请求�
 
 接下来讲解客户端的实现顺序。创建套接字和请求连接就是客户端的全部内容，所以要比服务器端简单多。
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.2.5.png" alt="1" style="zoom:45%;margin:0px" />
+<img src="image\4.2.5.png" alt="1" style="zoom:45%;margin:0px" />
 
 与服务器端相比，区别就在于“请求连接”，它是创建客户端套接字后向服务器端发起的连接请求。服务器端调用listen函数后创建连接请求等待队列，之后客户端即可请求连接。那如何发起连接请求呢？通过调用如下函数完成。
 
@@ -1295,7 +1295,7 @@ int connect(int sock, struct sockaddr *servaddr, socklen_t addrlen);
 
 ### 4.2.7 基于TCP的服务器端/客户端函数调用关系
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.2.7.png" style="zoom:60%;margin:0px" />
+<img src="image\4.2.7.png" style="zoom:60%;margin:0px" />
 
 总体流程整理如下：服务器端创建套接字后连续调用bind、listen函数进入等待状态，客户端通过调用connect函数发起连接请求。需要注意的是，客户端只能等到服务器端调用listen函数后才能调用connect函数。同时要清楚，客户端调用connect函数前，服务器端有可能率先调用accept函数。当然，此时服务器端在调用accept函数时进入阻塞（blocking）状态，直到客户端调用connect函数为止。
 
@@ -1305,7 +1305,7 @@ int connect(int sock, struct sockaddr *servaddr, socklen_t addrlen);
 
 之前讨论的Hello world服务器端处理完一个客户端连接请求即退出，连接请求等待队列实际没有太大意义。但这并非我们想象的服务器端。设置好等待队列的大小后，应向所有客户端提供服务。如果想继续受理后续的客户端连接请求，最简单的办法就是插入循环语句反复调用accept函数，如图4-11所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\4.2.8.png" style="zoom:60%;margin:0px" />
+<img src="image\4.2.8.png" style="zoom:60%;margin:0px" />
 
 从上图可以看出，调用accept函数后，紧接着调用I/O相关的read、write函数，然后调用close函数。close并非针对服务器端套接字，而是针对accept函数调用时创建的套接字。
 
@@ -1523,7 +1523,7 @@ while(1)
 
 客户端向服务器端传输的数据结构：
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.1.4.png" alt="1" style="zoom:50%;margin:0px" />
+<img src="image\5.1.4.png" alt="1" style="zoom:50%;margin:0px" />
 
 
 
@@ -1561,7 +1561,7 @@ TCP套接字的数据收发无边界。服务器端即使调用1次write函数�
 
 实际上，write函数调用后并非立即传输数据，read函数调用后，也并非马上接收数据。更准确地说，write函数调用瞬间，数据将移至输出缓存；read函数调用瞬间，从输入缓冲读取数据。
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.2.1.png" alt="1" style="zoom:35%;margin:0px" />
+<img src="image\5.2.1.png" alt="1" style="zoom:35%;margin:0px" />
 
 如图5-2所示，调用wirte函数时，数据将移到输出缓冲，在适当的时候（不管是分别传送还是一次性传送）传向对方的输入缓冲。这是对方将调用read函数从输入缓冲读取数据。这些I/O缓冲特性可整理如下：
 
@@ -1618,7 +1618,7 @@ TCP在实际通信过程中也回经过3次对话过程，因此，该过程又�
 
 连接过程中实际交换的信息格式：
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.2.2.png" style="zoom:65%;margin:0px" />
+<img src="image\5.2.2.png" style="zoom:65%;margin:0px" />
 
 套接字是以全双工(Full-duplex)方式工作的。也就是说，它可以双向传递数据。因此，收发数据前需要做一些准备。首先，请求连接的主机A向主机B传递如下信息：
 
@@ -1658,7 +1658,7 @@ TCP在实际通信过程中也回经过3次对话过程，因此，该过程又�
 
 通过第一步三次握手过程完成了数据交换准备，下面正式开始收发数据：
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.2.3.png" style="zoom:70%;margin:0px" />
+<img src="image\5.2.3.png" style="zoom:70%;margin:0px" />
 
 上图给出了主机A分2次（分2个数据包）向主机B传递200字节的过程。
 
@@ -1676,7 +1676,7 @@ TCP在实际通信过程中也回经过3次对话过程，因此，该过程又�
 
 下面分析传输过程中数据包丢失的情况：
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.2.3_2.png" style="zoom:68%;margin:0px" />
+<img src="image\5.2.3_2.png" style="zoom:68%;margin:0px" />
 
 上图表示通过SEQ 1301数据包向主机B传递100字节数据。但中间发生了错误，主机B未收到。经过一段时间后，主机A仍未收到对于SEQ 1301的ACK确认，因此试着重传该数据包。为了完成数据包重传，TCP套接字启动计时器以等待ACK应答。若相应计时器发生超时，则重传。
 
@@ -1696,7 +1696,7 @@ TCP在实际通信过程中也回经过3次对话过程，因此，该过程又�
 >
 > 套接字A：“好的，谢谢合作。”
 
-<img src="C:\Users\Tsing\Desktop\.assets\5.2.4.png" style="zoom:55%;margin:0px" />
+<img src="image\5.2.4.png" style="zoom:55%;margin:0px" />
 
 上图数据包内的FIN表示断开连接。也就是说，双方各发送1次FIN消息后断开连接。此过程经历4个阶段，因此又称「四次握手」。
 
@@ -1812,7 +1812,7 @@ TCP在实际通信过程中也回经过3次对话过程，因此，该过程又�
 
 与TCP不同，UDP不会进行流控制，接下来具体讨论UDP的作用：
 
-<img src="C:\Users\Tsing\Desktop\.assets\6.1.2.png" style="zoom:50%;margin:0px" />
+<img src="image\6.1.2.png" style="zoom:50%;margin:0px" />
 
 从图中可以看出，IP的作用就是让离开主机B的UDP数据包准确传递到主机A。但把UDP包最终交给主机A的的某一UDP套接字的过程则是由UDP完成的。UDP最重要的作用就是根据端口号将传到主机的数据包交付给最终的UDP套接字。
 
@@ -1849,7 +1849,7 @@ TCP中，套接字之间应该是一对一关系。若要向10个客户端提供
 
 图6-2展示了1个UDP套接字与2个不同主机交换数据的过程。也就是说，只需1个UDP套接字就能和多台主机通信。
 
-<img src="C:\Users\Tsing\Desktop\.assets\6.2.2.png" alt="1" style="zoom:50%;margin:0px" />
+<img src="image\6.2.2.png" alt="1" style="zoom:50%;margin:0px" />
 
 
 
@@ -2147,7 +2147,7 @@ connect(sock, (struct sockaddr*)&adr, sizeof(adr));
 
 Linux的`close`函数和Windows的`closesocket`函数意味着完全断开连接。完全断开不仅无法传输数据，而且也不能接收数据。因此，在某些情况下，通信一方调用`close`或`closesocket`函数断开连接就显得不太优雅。
 
-<img src="C:\Users\Tsing\Desktop\.assets\7.1.1.png" alt="1" style="zoom:45%;margin:0px" />
+<img src="image\7.1.1.png" alt="1" style="zoom:45%;margin:0px" />
 
 上图描述的是2台主机正在进行双向通信。主机A发送完最后的数据后，调用close函数断开了连接，之后主机A无法再接收主机B传输的数据，因为断开后主机A完全无法调用接收数据的函数。最终，由主机B传输的、主机A必须接收的数据也销毁了。
 
@@ -2161,7 +2161,7 @@ Linux的`close`函数和Windows的`closesocket`函数意味着完全断开连接
 
 此处的流可以比作水流。水朝着一个方向流动，同样，在套接字的流中，数据也只能向一个方向移动。因此，为了进行双向通信，需要下图所示的2个流：
 
-<img src="C:\Users\Tsing\Desktop\.assets\7.1.2.png" alt="1" style="zoom:55%;margin:0px" />
+<img src="image\7.1.2.png" alt="1" style="zoom:55%;margin:0px" />
 
 一旦两台主机间建立了套接字连接，每个主机就会拥有单独的输入流和输出流。当然，其中一个主机的输入流与另一台主机的输出流相连，而输出流则与另一主机的输入流相连。另外，本章讨论的“优雅地断开连接方式”之断开其中1个流，而非同时断开两个流。Linux的close和Windows的closesocket函数将同时断开这两个流，因此与“优雅”二字还有一段距离。
 
@@ -2224,7 +2224,7 @@ Linux的`close`函数和Windows的`closesocket`函数意味着完全断开连接
 
 上述文件传输服务器端和客户端的数据流可以整理成如下图：
 
-<img src="C:\Users\Tsing\Desktop\.assets\7.1.5.png" style="zoom:55%;margin:0px" />
+<img src="image\7.1.5.png" style="zoom:55%;margin:0px" />
 
 首先介绍服务器端，该示例省略了大量错误处理代码，这种处理只是为了便于分析代码，实际编写中不应省略。
 
@@ -2293,7 +2293,7 @@ DNS是对IP地址和域名进行相互转换的系统，其核心是DNS服务器
 
 相当于一个字典，可以查询出某一个域名对应的IP地址
 
-<img src="C:\Users\Tsing\Desktop\.assets\8.1.2_1.png" style="zoom:68%;margin:0px;" />
+<img src="image\8.1.2_1.png" style="zoom:68%;margin:0px;" />
 
 
 
@@ -2353,7 +2353,7 @@ struct hostent
 
 调用gethostbyname函数后返回hostent结构体的变量结构如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\8.2.2.png" style="zoom:65%;margin:0px;" />
+<img src="image\8.2.2.png" style="zoom:65%;margin:0px;" />
 
 > 该图在实际编程中非常有用，结合hostent结构体定义加以理解
 
@@ -2380,7 +2380,7 @@ struct hostent
 
 若只看hostent结构体的定义，结构体成员`h_addr_list`指向字符串指针数组（由多个字符串地址构成的数组）。但字符串指针数组中的元素实际指向的是（实际保存的是）`in_addr`结构体变量地址值而非字符串，如下图：
 
-<img src="C:\Users\Tsing\Desktop\.assets\8.2.2_1.png" style="zoom:50%;margin:0px;" />
+<img src="image\8.2.2_1.png" style="zoom:50%;margin:0px;" />
 
 正因如此，示例的第28行需要进行类型转换，并调用inet_ntoa函数。
 
@@ -2446,7 +2446,7 @@ struct hostent * gesthostbyaddr(const char * addr, socklen_t len, int family) ;
 
 2. 阅读如下对话，并说明东秀的方案是否可行？
 
-   <img src="C:\Users\Tsing\Desktop\.assets\8.4.png" alt="1" style="zoom:50%;margin:0px" />
+   <img src="image\8.4.png" alt="1" style="zoom:50%;margin:0px" />
 
    > 答：东秀的方案是可行的，DNS服务器是分布式的，一台坏了可以找其他的。
 
@@ -2628,7 +2628,7 @@ int setsockopt(int sock, int level, int optname, const void * optavl, socklen_t 
 
 四次挥手的过程：
 
-<img src="C:\Users\Tsing\Desktop\.assets\9.2.2.png" alt="1" style="zoom:75%;margin:0px" />
+<img src="image\9.2.2.png" alt="1" style="zoom:75%;margin:0px" />
 
 假设上图9-1中主机A是服务器端，因为是主机A向B发送FIN消息，故可以想象成服务器端在控制台输入<kbd>CTRL</kbd>+<kbd>C</kbd>。但问题是，套接字经过四次挥手过程后并非立即消除，而是要经过一段时间的Time-wait状态。当然，只有先断开连接（先发送FIN消息的）主机才经过Time-wait状态。因此，若服务器端先断开，则无法立即重新运行。套接字处在Time-wait过程中，相应端口是正在使用的状态。因此，就像之前验证过的，bind函数调用过程中当然会发生错误。
 
@@ -2648,7 +2648,7 @@ Time-wait看似重要，但并不一定讨人喜欢。考虑一下系统发生�
 
 下图演示了四次挥手时不得不延长Time-wait过程的情况：
 
-<img src="C:\Users\Tsing\Desktop\.assets\9.2.3.png" style="zoom:75%;margin:0px" />
+<img src="image\9.2.3.png" style="zoom:75%;margin:0px" />
 
 如图所示，再主机A的四次挥手过程中，如果最后的数据丢失，则主机B会认为主机A未能收到自己发送的FIN消息，因此重传。这时，收到FIN消息的主机A将重启Time-wait计时器。因此，如果网络状况不理想，Time-wait状态将持续。
 
@@ -2674,7 +2674,7 @@ setsockopt(serv_sock, SOL_SOCKET, SO_REUSEADDR, (void*)&option, optlen);
 
 为防止因数据包过多而发生网络过载，Nagle算法在1984年诞生了。它应用于 TCP层，非常简单。其使用与否，会导致如下图所示的差异：
 
-<img src="C:\Users\Tsing\Desktop\.assets\9.3.1.png" style="zoom:55%;margin:0px;" />
+<img src="image\9.3.1.png" style="zoom:55%;margin:0px;" />
 
 上图展示了通过Nagle算法发送字符串“Nagle”和未使用Nagle算法的差别。可以得到如下结论：
 
@@ -2802,7 +2802,7 @@ Nagle算法并不是什么时候都适用。根据传输数据的特性，网络
 
 - 运行结果：ps命令语句
 
-  <img src="C:\Users\Tsing\Desktop\.assets\10.1.3.png" alt="1" style="zoom:50%;margin:0px;" />
+  <img src="image\10.1.3.png" alt="1" style="zoom:50%;margin:0px;" />
 
   可以看出，通过ps指令可以查看当前运行的所有进程。特别需要注意的是，该命令同时列出PID（进程ID）。另外，上述示例通过指定a和u参数列出了所有进程详细信息。
 
@@ -2826,7 +2826,7 @@ fork函数将创建调用的进程副本（概念上略难）。也就是说，�
 
 此处“父进程”（Parent Process）指原进程，即调用fork函数的主体，而“子进程”（Child Process）是通过父进程调用fork函数复制出的进程。接下来讲解调用fork函数后的程序运行流程，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.1.4.png" alt="1" style="zoom:60%;margin:0px;" />
+<img src="image\10.1.4.png" alt="1" style="zoom:60%;margin:0px;" />
 
 从上图可以看到，父进程调用fork函数的同时复制出子进程，并分别得到fork函数的返回值。但复制前，父进程将全局变量gval增加到11，将局部变量lval的值增加到25，因此在这种状态下完成进程复制。复制完成后根据fork函数的返回类型区分父子进程。父进程将lval的值加1，但这不会影响子进程的lval值。同样，子进程将gval的值加1也不会影响到父进程的gval。因为fork函数调用后分成了完全不同的进程，只是二者共享统一代码而已。接下来给出示例验证之前的内容。
 
@@ -3214,7 +3214,7 @@ struct sigaction
 
 之前的回声服务器端每次只能向1个客户端提供服务。因此，我们将扩展回声服务器端，使其可以同时向多个客户端提供服务。下图给出了基于多进程的并发回声服务器端的实现模型。
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.4.1.png" style="zoom:60%;margin:0px;" />
+<img src="image\10.4.1.png" style="zoom:60%;margin:0px;" />
 
 从上图可以看出，每当有客户端请求服务（请求连接）时，回声服务器端都创建子进程以提供服务。请求服务的客户端若有5个，则将创建5个子进程提供服务。为了完成这些任务，需要经过如下过程，这是与之前的回声服务器端的区别所在。
 
@@ -3242,11 +3242,11 @@ struct sigaction
 
 调用fork函数时复制父进程的所有资源，但是套接字不是归进程所有的，而是归操作系统所有，只是进程拥有代表相应套接字的文件描述符。
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.4.3.png" style="zoom:55%;margin:0px;" />
+<img src="image\10.4.3.png" style="zoom:55%;margin:0px;" />
 
 上图中，1个套接字存在2个文件描述符时，只有2个文件描述符都终止（销毁）后，才能销毁套接字。如果维持图中的状态，即使子进程销毁了与客户端连接的套接字文件描述符，也无法销毁套接字（服务器套接字同样如此）。因此调用fork函数后，要将无关紧要的套接字文件描述符关掉，如下图所示:
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.4.3_2.png" alt="1" style="zoom:51%;margin:0px;" />
+<img src="image\10.4.3_2.png" alt="1" style="zoom:51%;margin:0px;" />
 
 为了将文件描述符整理成图10-4的形式，示例echo_myserv.c的第60行和第69行调用了close函数。
 
@@ -3264,7 +3264,7 @@ struct sigaction
 
 从图10-5可以看出，客户端的父进程负责接收数据，额外创建的子进程负责发送数据。分割后，不同进程分别负责输入和输出，这样，无论客户端是否从服务器端接受完数据都可以进行传输。
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.5.1.png" style="zoom:55%;margin:0px;" />
+<img src="image\10.5.1.png" style="zoom:55%;margin:0px;" />
 
 选择这种实现方式的原有有很多，但最重要的一点是，程序的实现更加简单。也许有人质疑：既然多产生1个进程，怎么能简化程序实现呢？其实，按照这种方式，父进程中只需编写接收数据的代码，子进程中只需编写发送数据的代码，所以会简化。实际上，在1个进程内同时实现数据收发逻辑需要考虑更多细节。程序越复杂，这种区别越明显，它也是公认的优点。
 
@@ -3274,7 +3274,7 @@ struct sigaction
 
 分割I/O程序的另一个好处是，可以提高频繁交换数据的程序性能，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\10.5.1 (2).png" style="zoom:60%;margin:0px;" />
+<img src="image\10.5.1 (2).png" style="zoom:60%;margin:0px;" />
 
 上图左侧演示的是之前的回声客户端数据交换方式，右侧演示的是分割I/O后的客户端数据传输方式。服务器端相同，不同的是客户端区域。分割I/O后的客户端发送数据时不必考虑接收数据的情况，因此可以连续发送数据，因此提高同一时间内容传输的数据量。这种差异在网速较慢的时尤为明显。
 
@@ -3386,7 +3386,7 @@ struct sigaction
 
 下图表示基于管道（PIPE）的进程间通信结构模型
 
-<img src="C:\Users\Tsing\Desktop\.assets\11.1.2.png" style="zoom:30%;margin:0px;" />
+<img src="image\11.1.2.png" style="zoom:30%;margin:0px;" />
 
 从上图可以看到，为了完成进程间通信，需要创建管道。管道并非属于进程的资源，而是和套接字一样，属于操作系统（也就不是fork函数的复制对象）。所以，两个进程通过操作系统提供的内存空间进行通信。
 
@@ -3448,7 +3448,7 @@ struct sigaction
 
 上述示例中的通信方法及路径如下图所示。重点在于，父子进程都可以访问管道的I/O路径，但子进程仅用于输入路径，父进程仅用于输出路径。
 
-<img src="C:\Users\Tsing\Desktop\.assets\11.1.2_2.png" alt="1" style="zoom:35%;margin:0px;" />
+<img src="image\11.1.2_2.png" alt="1" style="zoom:35%;margin:0px;" />
 
 以上就是管道的基本原理及通信方法。应用管道时还有一部分内容需要注意，通过双向通信示例进一步说明。
 
@@ -3458,7 +3458,7 @@ struct sigaction
 
 下面创建2个进程通过1个管道进行双向数据交换的示例，其通信方式如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\11.1.3.png" alt="1" style="zoom:50%;margin:0px" />
+<img src="image\11.1.3.png" alt="1" style="zoom:50%;margin:0px" />
 
 上图可以看出，通过1个管道进行双向通信。但采用这种模型使需格外注意。先给出代码示例，稍后再讨论。
 
@@ -3496,7 +3496,7 @@ struct sigaction
 
 非常简单，1个管道无法完成双向通信任务，因此需要创建2个管道，各自负责不同的数据流即可。其过程下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\11.1.3_2.png" style="zoom:40%;margin:0px;" />
+<img src="image\11.1.3_2.png" style="zoom:40%;margin:0px;" />
 
 由上图可知，使用2个管道可以避免程序流程的预测或控制。下面采用上述模型改进pipe2.c。
 
@@ -3596,11 +3596,11 @@ struct sigaction
 
 上述程序中，与客户端进行数据交换的服务器子进程，在进行本地文件保存过程中所传递的数据都是共用同一个pipe，详细可参考知乎中的一个回答：
 
-<img src="C:\Users\Tsing\Desktop\.assets\11.3.png" style="zoom:85%;margin:0px;" />
+<img src="image\11.3.png" style="zoom:85%;margin:0px;" />
 
 
 
-图解[echo_storeserv.c](SK11/echo_storeserv.c) 程序：<img src="C:\Users\Tsing\Desktop\.assets\11.2.1_2.png" style="zoom:50%;" />
+图解[echo_storeserv.c](SK11/echo_storeserv.c) 程序：<img src="image\11.2.1_2.png" style="zoom:50%;" />
 
 
 
@@ -3610,7 +3610,7 @@ struct sigaction
 >
 > 可以参考知乎中的提问回答：[一个进程绑定了端口号后，创建子进程（fork），子进程是不是和父进程绑定了同一个端口号？](https://www.zhihu.com/question/360939266)
 >
-> <img src="C:\Users\Tsing\Desktop\.assets\11.2.1_3.png" alt="1" style="zoom:100%;margin:0px;" />
+> <img src="image\11.2.1_3.png" alt="1" style="zoom:100%;margin:0px;" />
 
 
 
@@ -3691,11 +3691,11 @@ struct sigaction
 
 > “为了提高物理设备的效率，用最少的物理要素传递最多数据时使用的技术。”
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.1.2.png" style="zoom:40%;margin:0px;" />
+<img src="image\12.1.2.png" style="zoom:40%;margin:0px;" />
 
 上图12-1时远距离的3人可以同时通话的3方对话纸杯电话系统。为了使3人同时对话，需准备图中所示系统。另外，为了完成3人对话，说话时需同时对着两个纸杯，接听时也需要耳朵同时对准两个纸杯。此时引入复用技术会使通话更加方便，如下图12-2所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.1.2_2.png" style="zoom:40%;margin:0px;" />
+<img src="image\12.1.2_2.png" style="zoom:40%;margin:0px;" />
 
 复用技术的优点：
 
@@ -3714,15 +3714,15 @@ struct sigaction
 
 纸杯电话系统引入复用技术后，可以减少纸杯数和连线长度。同样，服务器端引入复用技术可以减少所需进程数。为便于比较，先给出第十章的多进程服务器端模型，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.1.3.png" style="zoom:55%;margin:0px;" />
+<img src="image\12.1.3.png" style="zoom:55%;margin:0px;" />
 
 下图的模型中引入复用技术，可以减少进程数。重要的是，无论连接多少客户端，提供服务的进程只有1个。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.1.3_2.png" style="zoom:60%;margin:0px;" />
+<img src="image\12.1.3_2.png" style="zoom:60%;margin:0px;" />
 
 以上就是I/O复用服务器端模型的介绍。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.1.3_3.png" style="zoom:70%;" />
+<img src="image\12.1.3_3.png" style="zoom:70%;" />
 
 
 
@@ -3746,7 +3746,7 @@ struct sigaction
 
 select函数的使用方法与一般函数区别较大，更准确地说，它很难使用。但为了实现I/O复用服务器端，我们应掌握select函数，并运用到套接字编程中。认为「select函数是I/O复用的全部内容」也并不为过。接下来介绍select函数的调用方法和顺序，如下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.2.1.png" style="zoom:50%;margin:0px;" />
+<img src="image\12.2.1.png" style="zoom:50%;margin:0px;" />
 
 上图给出了调用select函数到获取结果所经过程。可以看到，调用select函数前需要一些准备工作，调用后还需查看结果。接下来按照上述顺序逐一讲解。
 
@@ -3756,7 +3756,7 @@ select函数的使用方法与一般函数区别较大，更准确地说，它�
 
 使用fd_set数组变量执行此项操作，如下图所示。该数组是存有0和1的位数组。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.2.2.png" alt="1" style="zoom:50%;margin:0px;" />
+<img src="image\12.2.2.png" alt="1" style="zoom:50%;margin:0px;" />
 
 上图最左端的位表示文件描述符0（所在位置）。如果该位设置为1，则表示该文件描述符是监视对象。那么图中哪些文件描述符是监视对象呢？很明显，是文件描述符1和3。
 
@@ -3771,7 +3771,7 @@ select函数的使用方法与一般函数区别较大，更准确地说，它�
 
 上述函数中，`FD_ISSET`用于验证select函数的调用结果。通过下图解释这些函数的功能，简洁易懂，无需赘述。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.2.2_2.png" style="zoom:70%;margin:0px;" />
+<img src="image\12.2.2_2.png" style="zoom:70%;margin:0px;" />
 
 
 
@@ -3836,7 +3836,7 @@ select函数返回正整数时，怎样获知哪些文件描述符发生了变�
 
 向select函数的第二到第四个参数传递的fd_set变量中将产生如下图所示变化，获知过程并不难。
 
-<img src="C:\Users\Tsing\Desktop\.assets\12.2.4.png" style="zoom:45%;margin:0px;" />
+<img src="image\12.2.4.png" style="zoom:45%;margin:0px;" />
 
 由上图可知，select函数调用完成后，向其传递的fd_set变量中将发生变化。原来为1的所有位均变为0，但发生变化的文件描述符对应位除外。因此，可以认为值仍为1的位置上的文件描述符发生了变化。
 
@@ -4036,7 +4036,7 @@ fcntl函数用于控制文件描述符，但上述调用语句的含义如下：
 
 当然，上述描述中的“处理SIGURG信号”指的是“调用SIGURG信号处理函数”。但之前讲过，多个进程可以共同拥有1个套接字的文件描述符。例如，通过调用fork函数创建子进程并同时复制文件描述符。此时如果发生SIGURG信号，应该调用哪个进程的信号处理函数呢？可以肯定的是，不会调用进程所有进程的信号处理函数（想想就知道这会引发更多问题）。因此，处理SIGURG信号时必须指定处理信号进程，而getpid函数返回调用此函数的进程ID。上述调用语句指定当前进程为处理SIGURG信号的主体。该程序中只创建了1个进程，因此，理应由该进程处理SIGURG信号。接下来先给出运行结果，再讨论剩下的问题。
 
-<img src="C:\Users\Tsing\Desktop\.assets\13.1.2.png" style="zoom:90%;margin:0px;" />
+<img src="image\13.1.2.png" style="zoom:90%;margin:0px;" />
 
 输出结果可能出乎大家预料，尤其是如下事实令人极为失望：
 
@@ -4067,7 +4067,7 @@ MSG_OOB的真正的意义在于督促数据接收对象尽快处理数据。这�
 
 无法快速把病人送收到医院，并不意味着不需要医院进行急救。TCP的紧急消息无法保证及时入院，但可以要求急救。当然，急救措施应由程序员完成。之前的示例oob_recv.c的运行过程中也传递了紧急消息，这可以通过事件处理函数确认。这就是MSG_OOB模式数据传输的实际意义。下面给出设置MSG_OOB可选项状态下的数据传输过程，如下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\13.1.3.png" alt="1" style="zoom:30%;margin:0px;" />
+<img src="image\13.1.3.png" alt="1" style="zoom:30%;margin:0px;" />
 
 上图给出的是示例oob_send.c的第32行中调用如下函数后的输出缓冲状态。此处假设已传输之前的数据。
 
@@ -4081,7 +4081,7 @@ send(sock, "890", strlen("890"), MSG_OOB);
 
 也就是说，实际只用1个字节表示紧急消息信息。这一点通过上图13-1中用于传输数据的TCP数据包的结构看得更清楚，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\13.1.3_2.png" style="zoom:35%;margin:0px;" />
+<img src="image\13.1.3_2.png" style="zoom:35%;margin:0px;" />
 
 TCP数据包实际包含更多信息，但上图只标注了与我们主题相关的内容。TCP头中含有如下两种信息：
 
@@ -4162,7 +4162,7 @@ readv & writev函数的功能可概括如下：
 
   可以看到，结构体iovec由保存待发送数据的缓冲（char型数组）地址值和实际发送的数据长度信息构成。给出上述函数的调用示例前，先通过下图了解该函数的使用方法。
 
-  <img src="C:\Users\Tsing\Desktop\.assets\13.2.1.png" alt="1" style="zoom:35%;margin:0px;" />
+  <img src="image\13.2.1.png" alt="1" style="zoom:35%;margin:0px;" />
 
   上图中writev的第一个参数1是文件描述符，因此向控制台输出数据，ptr是存有待发送数据信息的iovec数组指针。第三个参数为2，因此，从ptr指向的地址开始，共浏览2个iovec结构体变量，发送这些指针指向的缓冲数据。接下来仔细观察图中的iovec结构体数组。ptr[0]（数组第一个元素）的iov_base指向以A开头的字符串，同时iov_len为3，故发送ABC。而ptr[1]（数组的第二个元素）的iov_base指向数字1，同时iov_len为4，故发送1234。
 
@@ -4219,7 +4219,7 @@ readv & writev函数的功能可概括如下：
 
 即使仅从C语言角度来看，减少函数调用次数也能相应提高性能。但其更大的意义在于减少数据包个数。假设为了提高效率而在服务器端明确阻止了Nagle算法。其实writev函数在不采用Nagle算法时更有价值，如下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\13.2.2.png" style="zoom:50%;margin:0px;" />
+<img src="image\13.2.2.png" style="zoom:50%;margin:0px;" />
 
 上述示例中待发送的数据分别存在3个不同的地方，此时如果使用write函数则需要3次函数调用。但若为提高速度而关闭了Nagle算法，则以有可能通过3个数据包传递数据。反之，若使用writev函数将所有数据一次性写入输出缓冲，则很有可能仅通过1个数据包传输数据。所以writev函数和readv函数非常有用。
 
@@ -4281,7 +4281,7 @@ readv & writev函数的功能可概括如下：
 
 多播是基于UDP完成的，也就是说，多播数据包的格式与UDP数据包相同。只是与一般的UDP数据包不同。向网络传递1个多播数据报时，路由器将复制该数据包并传递到多个主机。像这样，多播需要借助路由器完成。如下图所示：
 
-![](C:\Users\Tsing\Desktop\.assets\14.1.1.png)
+![](image\14.1.1.png)
 
 若通过TCP或UDP向1000个主机发送文件，则共需传递1000次。但是此时如果用多播网络传输文件，则只需要发送一次。这时由1000台主机构成的网络中的路由器负责复制文件并传递到主机。就因为这种特性，多播主要用于「多媒体数据实时传输」。
 
@@ -4291,7 +4291,7 @@ readv & writev函数的功能可概括如下：
 
 接下来讨论多播相关编程办法。为了传递多播数据包，必须设置TTL。TTL是Time to Live的简写，是决定“数据包传递距离”的主要因素。TTL用整数表示，并且每经过1个路由器就减1。TTL变为0时，该数据包无法再被传递，只能销毁。因此TTL的值设置过大将影响网络流量。当然，设置过小也会无法传递到目标，需要引起注意。
 
-<img src="C:\Users\Tsing\Desktop\.assets\14.1.2.png" style="zoom:45%;margin:0px;" />
+<img src="image\14.1.2.png" style="zoom:45%;margin:0px;" />
 
 接下来给出TTL设置的方法。程序中的TTL设置是通过第九章的套接字可选项完成的。与上设置TTL相关的协议层为`IPPROTO_IP`，可选项名为`IP_MULTICAST_TTL`。因此，可以通过用如下代码把TTL设置为64。
 
@@ -4484,7 +4484,7 @@ setsockopt(send_sock, SOL_SOCKET, SO_BROADCAST,(void*)&bcast, sizeof(bcast));
 
 创建套接字时，操作系统将生成用于I/O的缓冲。此缓冲在执行TCP协议时发挥着非常重要的作用。此时若使用标准I/O函数，将得到额外的另一缓冲的支持，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\15.1.1.png" style="zoom:50%;margin:0px;" />
+<img src="image\15.1.1.png" style="zoom:50%;margin:0px;" />
 
 可以看到，使用标准I/O函数传输数据时，经过2个缓冲。例如，通过fputs函数传输字符串“Hello”时，首先将数据传递到标准I/O函数的缓冲。然后数据将移动到套接字输出缓冲，最后将字符串发送到对方主机。
 
@@ -4727,15 +4727,15 @@ shutdown(sock, SHUT_WR);
 
 下图描述的是[`sep_serv.c`](F:/share_ftp/SK/SK16/sep_serv.c)示例中的2个FILE指针、文件描述符及套接字之间的关系。
 
-<img src="C:\Users\Tsing\Desktop\.assets\16.2.1.png" alt="1" style="zoom:30%;margin:0px;" />
+<img src="image\16.2.1.png" alt="1" style="zoom:30%;margin:0px;" />
 
 从上图16-1可以看到，示例sep_serv.c中的读模式FILE指针和写模式FILE指针都是基于同一文件描述符创建的。因此，针对任意一个FILE指针调用fclose函数时都会关闭文件描述符，也就终止套接字。如下图16-2所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\16.2.1_2.png" style="zoom:35%;margin:0px;" />
+<img src="image\16.2.1_2.png" style="zoom:35%;margin:0px;" />
 
 从上图16-2中可以看到，销毁套接字时再也无法进行数据交换。那如何进入可以输入但无法输出的半关闭状态呢?其实很简单。如下图16-3所示，创建FILE指针前先复制文件描述符即可。
 
-<img src="C:\Users\Tsing\Desktop\.assets\16.2.1_3.png" style="zoom:37%;margin:0px;" />
+<img src="image\16.2.1_3.png" style="zoom:37%;margin:0px;" />
 
 如上图16-3所示，复制后另外创建1个文件描述符，然后利用各自的文件描述符生成读模式FILE指针和写模式FILE指针。这就为半关闭准备好了环境，因为套接字和文件描述符之间具有如下关系：
 
@@ -4743,7 +4743,7 @@ shutdown(sock, SHUT_WR);
 
 也就是说，针对写模式FILE指针调用fclose函数时，只能销毁与该FILE指针相关的文件描述符，无法销毁套接字（参考下图）。
 
-<img src="C:\Users\Tsing\Desktop\.assets\16.2.1_4.png" style="zoom:47%;margin:0px;" />
+<img src="image\16.2.1_4.png" style="zoom:47%;margin:0px;" />
 
 上图所示，调用fclose函数后还剩1个文件描述符，因此没有销毁套接字。那此时的状态是否为半关闭状态？不是！图16-3中讲过，只是准备好了半关闭环境。要进入真正的半关闭状态需要特殊处理。
 
@@ -4759,7 +4759,7 @@ shutdown(sock, SHUT_WR);
 
 之前提到的文件描述符的复制与fork函数中进行的复制有所区别。调用fork函数时将复制整个进程，因此同一进程内不能同时有原件和副本。但此处讨论的复制并非针对整个进程，而是在同一进程内完成描述符的复制，如下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\16.2.2..png" style="zoom:40%;margin:0px;" />
+<img src="image\16.2.2..png" style="zoom:40%;margin:0px;" />
 
 上图给出的是同一进程内 存在2个文件描述符可以同时访问文件的情况。当然，文件描述符的值不能重复，因此各使用5和7的整数值。为了形成这种结构，需要复制文件描述符。此处所谓的“复制”具有如下含义：
 
@@ -5294,7 +5294,7 @@ int fcntl(int filedes, int cmd, ...);
 
 > “可以分离接收数据和处理数据的时间点！”
 
-<img src="C:\Users\Tsing\Desktop\.assets\17.2.5.png" alt="1" style="zoom:60%;margin:0px;" />
+<img src="image\17.2.5.png" alt="1" style="zoom:60%;margin:0px;" />
 
 上图运行流程如下：
 
@@ -5393,7 +5393,7 @@ int fcntl(int filedes, int cmd, ...);
 
 每个进程的内存空间都由保存全局变量的“数据区”、向malloc等函数的动态分配提供空间的堆（Heap）、函数运行时使用的栈（Stack）构成。每个进程都拥有这种独立空间，多个进程的内存结构如下图所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.1.2.png" style="zoom:55%;margin:0px;" />
+<img src="image\18.1.2.png" style="zoom:55%;margin:0px;" />
 
 但如果以获得多个代码执行流为主要目的，则不应该像上图那样分离内存结构，而只需分离栈区域。通过这种方式可以获得如下优势。
 
@@ -5402,7 +5402,7 @@ int fcntl(int filedes, int cmd, ...);
 
 实际上这就是线程。线程为了保持多条代码执行流而隔开了栈区域，因此具有下图所示的内存结构：
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.1.2_2.png" style="zoom:68%;margin:0px;" />
+<img src="image\18.1.2_2.png" style="zoom:68%;margin:0px;" />
 
 如上图所示，多个线程将共享数据区和堆。为了保持这种结构，线程将在进程内创建并运行。也就是说，进程和线程可以定义为如下形式。
 
@@ -5411,7 +5411,7 @@ int fcntl(int filedes, int cmd, ...);
 
 如果说进程的操作系统内部生成多个执行流，那么线程就在同一个进程内部创建多条执行流。因此，操作系统、进程、线程之间的关系可以通过下图表示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.1.2_3.png" style="zoom:40%;margin:0px;" />
+<img src="image\18.1.2_3.png" style="zoom:40%;margin:0px;" />
 
 以上就是线程的理论说明。没有实际编程就很难理解好线程，希望各位通过学习线程相关代码理解全部内容。
 
@@ -5464,7 +5464,7 @@ int pthread_create(
 
 从上述运行结果中可以看到，线程相关代码在编译时需要添加`-lpthread`选项，声明需要连接线程库，只有这样才能调用头文件pthread.h中声明的函数。上述程序的执行流程如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.2.1.png" style="zoom:50%;margin:0px;" />
+<img src="image\18.2.1.png" style="zoom:50%;margin:0px;" />
 
 上图中的虚线代表执行流程，向下的箭头指的是执行流，横向箭头是函数调用。这些都是简单的符号，可以结合示例理解。接下来将上述示例的sleep函数的调用语句改成如下形式：
 
@@ -5507,7 +5507,7 @@ int pthread_join(pthread_t thread, void** status);
 
   最后，为了让大家更好地理解该示例，给出其执行流程图，如下图所示。请注意观察程序暂停后从线程终止时（线程main函数返回时）重新执行的部分。
 
-  <img src="C:\Users\Tsing\Desktop\.assets\18.2.1_3.png" style="zoom:70%;margin:0px;" />
+  <img src="image\18.2.1_3.png" style="zoom:70%;margin:0px;" />
 
 
 
@@ -5560,7 +5560,7 @@ gcc -D_REENTRANT mythread.c -o mthread -lphread
 
 将要介绍的示例：将计算1~10的和，但并不是在main函数中进行累加运算，而是创建2个线程，其中一个线程计算1到5的和，另一个线程计算6到10的和，main函数只负责输出运算结果。这种方式的编程模型称为「工作线程模型」(Worker thread)。计算1到5之和的线程与计算6到10之和的线程将成为main线程管理的工作（Worker）。最后，给出示例代码前先给出程序执行流程图，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.2.3.png" style="zoom:80%;margin:0px;" />
+<img src="image\18.2.3.png" style="zoom:80%;margin:0px;" />
 
 - 示例代码参见：[thread3.c](SK18/thread3.c)
 
@@ -5617,29 +5617,29 @@ gcc -D_REENTRANT mythread.c -o mthread -lphread
 
 当然，此处的“同时访问”与各位所想的有一定区别。下面通过示例解释“同时访问”的含义，并说明为何会引起问题。假设2个线程要执行将变量值逐次加1的工作，如下图所示：
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1.png" style="zoom:55%;margin:0px;" />
+<img src="image\18.3.1.png" style="zoom:55%;margin:0px;" />
 
 上图描述的是2个线程准备将变量num的值加1的情况。在此状态下，线程1将变量num的值增加到100后，线程2再访问num时，变量num中间按照我们预先保存101。下图18-9时线程1将变量num完成增加后的情形。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1_2.png" style="zoom:40%;margin:0px;" />
+<img src="image\18.3.1_2.png" style="zoom:40%;margin:0px;" />
 
 上图中需要注意值得增加方式，值的增加需要CPU运算完成，变量num中的值不会自动增加。线程1首先读该变量的值并将其传递到CPU，获得加1之后的结果100，最后再把结果写回变量num，这样num中就保存100。接下来给出线程2的执行过程，如下图18-10所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1_3.png" style="zoom:50%;margin:0px;" />
+<img src="image\18.3.1_3.png" style="zoom:50%;margin:0px;" />
 
 变量num中将保存101，但这是理想的情况。线程1完全增加num值之前，线程2完全有可能通过切换得到CPU资源。
 
 下面从头再来。下图18-11描绘的是线程1读取变量num的值并完成加1运算时的情况，只是加1后的结果尚未写入变量num。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1_4.png" style="zoom:40%;margin:0px;" />
+<img src="image\18.3.1_4.png" style="zoom:40%;margin:0px;" />
 
 接下来就要将100保存到变量num中，但执行该操作前，执行流程跳转到了线程2。幸运的是（是否真正幸运稍后再论），线程2完成了加1运算，并将加1之后的结果写入变量num，如下图18-12所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1_5.png" style="zoom:45%;margin:0px;" />
+<img src="image\18.3.1_5.png" style="zoom:45%;margin:0px;" />
 
 从上图可以看到，变量num的值尚未被线程1加到100，因此线程2读到的变量num的值为99，结果是线程2将num值改成100。还剩下线程1加运算后的值写入变量num的操作。接下来给出该过程，如下图18-13所示。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.3.1_6.png" style="zoom:35%;margin:0px;" />
+<img src="image\18.3.1_6.png" style="zoom:35%;margin:0px;" />
 
 很可惜，此时线程1将自己的运算结果100再次写入变量num，结果变量num变成100。虽然线程1和线程2各做了1次加1运算，却得到了意想不到的结果。因此，线程访问变量num时应该阻止其他线程访问，直到线程1完成运算。这就是同步（Synchronization）。相信各位也意识到了多线程编程中「同步」的必要性，且能够理解thread4.c的运行结果。
 
@@ -5705,7 +5705,7 @@ void* thread_des(void* arg)
 
 互斥量是“Mutual Exclusion”的简写，表示不允许多个线程同时访问，互斥量主要用于解决线程同步访问的问题。为了理解好互斥量，请观察如下对话过程。
 
-<img src="C:\Users\Tsing\Desktop\.assets\18.4.2.png" style="zoom:40%;margin:0px;" />
+<img src="image\18.4.2.png" style="zoom:40%;margin:0px;" />
 
 相信各位也猜到了上述对话发生的场景。现实世界中的临界区就是洗手间。洗手间无法同时容纳多人（比作线程），因此可以将临界区比喻为洗手间。而且这里发生的所有事情几乎可以全部套用到临界区同步过程。洗手间使用规则如下。
 
@@ -6019,7 +6019,7 @@ HTTP是以超文本传输为目的而设计的应用程协议，这种协议同�
 
   为了在网络环境下同时向大量客户端提供服务，HTTP协议的请求及响应方式设计如图24-1所示。
 
-  <img src="C:\Users\Tsing\Desktop\.assets\24.1.2.png" style="zoom:60%;margin:0px;" />
+  <img src="image\24.1.2.png" style="zoom:60%;margin:0px;" />
 
   从上图可以看到，服务器端响应客户端请求后立即断开连接。换言之，服务器端不会维持客户端状态。即使同一客户端再次发送请求，服务器端也无法辨认出是原先那个，而会以相同方式处理新请求。因此，HTTP又称「无状态的(Stateless)协议」。
 
@@ -6033,7 +6033,7 @@ HTTP是以超文本传输为目的而设计的应用程协议，这种协议同�
 
   下面介绍客户端向服务器端发送的请求消息的结构。Web服务器端需要解析并响应客户端请求，客户端和服务器端之间的数据请求方式标准如下图所示：
 
-  <img src="C:\Users\Tsing\Desktop\.assets\24.1.2_2.png" style="zoom:60%;margin:0px;" />
+  <img src="image\24.1.2_2.png" style="zoom:60%;margin:0px;" />
 
   从上图可以看到，请求消息分为3个部分：
 
@@ -6053,7 +6053,7 @@ HTTP是以超文本传输为目的而设计的应用程协议，这种协议同�
 
   下面介绍Web服务器端向客户端传递的响应消息的结构。从下图中可以看出，该响应消息由状态行、头信息、消息体等三部分组成。状态行中有关于请求的状态信息，这是与请求消息相比最为明显的区别。
 
-  <img src="C:\Users\Tsing\Desktop\.assets\24.1.2_3.png" style="zoom:70%;margin:0px;" />
+  <img src="image\24.1.2_3.png" style="zoom:70%;margin:0px;" />
 
   从上图可以看到，第一个字符状态行中含有关于客户端请求的处理结果。例如，客户端请求index.html文件时，表示index.html文件是否存在、服务端是否发生问题而无法响应等不同情况的信息将写入状态行。上图中的`HTTP/1.1 200 OK`具有如下含义：
 
@@ -6088,7 +6088,7 @@ HTTP是以超文本传输为目的而设计的应用程协议，这种协议同�
 
 - 在浏览器输入框中，输入 `localhost:5009/index.html`
 
-  <img src="C:\Users\Tsing\Desktop\.assets\24.png" alt="1" style="zoom:60%;margin:0px;" />
+  <img src="image\24.png" alt="1" style="zoom:60%;margin:0px;" />
 
 
 
